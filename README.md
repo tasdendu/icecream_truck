@@ -1,19 +1,19 @@
 # Icecream Truck
 
-```sh
+```zsh
 git clone https://github.com/tashi_179/icecream_truck.git
 cd icecream_truck
 ```
 
 Create a virtual environment to install dependencies in and activate it:
 
-```sh
+```zsh
 conda create --name truck_env django
 conda activate truck_env
 ```
 
 Run seed file to populate dummy data
-```sh
+```zsh
 (truck_env)$ python seeds.py
 (truck_env)$ python manage.py runserver
 ```

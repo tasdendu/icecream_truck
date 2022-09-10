@@ -6,7 +6,7 @@ from item.models import Item
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(Customer)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True, blank=False)
 
     class Meta:
@@ -14,7 +14,7 @@ class Order(models.Model):
 
 
 class LineItem(models.Model):
-    order = models.ForeignKey(Order)
-    item = models.ForeignKey(Item)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=False)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=False)
     quantity = models.IntegerField(default=0)
     price = models.FloatField(default=0.0)

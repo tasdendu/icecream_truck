@@ -11,6 +11,18 @@ Create a virtual environment to install dependencies in and activate it:
 conda create --name truck_env django
 conda activate truck_env
 ```
+or
+Using `venv`
+```zsh
+python3 -m venv env
+source env/bin/activate
+```
+
+Then run the following command to install the dependencies:
+
+```zsh
+pip install -r requirements.txt
+```
 
 Run seed file to populate dummy data
 ```zsh

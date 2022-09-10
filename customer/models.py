@@ -7,7 +7,8 @@ from truck.models import Truck
 
 class Customer(User, models.Model):
     phone = models.CharField(max_length=100, unique=True)
-    truck = models.ForeignKey(Truck, related_name='truck')
+    truck = models.ForeignKey(
+        Truck, related_name='customers', on_delete=models.CASCADE)
     REQUIRED_FIELDS = ['username', 'phone', 'first_name', 'last_name', 'email']
 
     def get_username(self) -> str:

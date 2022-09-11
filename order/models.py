@@ -31,5 +31,5 @@ def update_item(sender, **kwargs):
     line_item = kwargs['instance']
     item = line_item.item
     LineItem.objects.filter(id=line_item.id).update(price=item.price)
-    item.quantity = item.quantity - line_item.quantity
-    item.save()
+    Item.objects.filter(id=item.id).update(
+        quantity=item.quantity - line_item.quantity)

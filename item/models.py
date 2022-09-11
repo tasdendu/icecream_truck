@@ -1,5 +1,6 @@
 from django.db import models
 from truck.models import Truck
+from django.db.models import Sum, F
 
 # Create your models here.
 
@@ -18,6 +19,10 @@ class Item(models.Model):
     truck = models.ForeignKey(
         Truck, null=False, related_name="items", on_delete=models.CASCADE)
     flavors = models.ManyToManyField(Flavor, blank=False)
+
+    def total_amount(self):
+        return self.line_items.aggregate(total_amount=Sum(
+            F('quantity')*F('price')))['total_amount']
 
     def __str__(self):
         return self.name

@@ -19,12 +19,15 @@ pip install -r requirements.txt
 
 Run seed file to populate dummy data
 ```zsh
-(truck_env)$ python seeds.py
-(truck_env)$ python manage.py runserver
+bash migrate_and_seed.sh
+python manage.py runserver
+```
+To run the test suite:
+```zsh
+python manage.py test
 ```
 
 ### API Endpoints
-1. `localhost:8000/api/v1/customers/token/login/` Login API endpoint
 1. `localhost:8000/api/v1/trucks/` List of icecream trucks
 2. `localhost:8000/api/v1/items/` Inventory list from all the trucks
 3. `localhost:8000/api/v1/orders/` List of customers order

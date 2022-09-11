@@ -18,12 +18,16 @@ class Order(models.Model):
 class LineItem(models.Model):
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE, related_name='line_items', blank=False)
-    item = models.ForeignKey(Item, on_delete=models.CASCADE, blank=False)
+    item = models.ForeignKey(
+        Item, related_name='line_items', on_delete=models.CASCADE, blank=False)
     quantity = models.IntegerField(default=0)
     price = models.FloatField(default=0.0)
 
     class Meta:
         unique_together = ['order', 'item']
+
+    def amount(self):
+        return self.quantity * self.price
 
 
 @receiver(post_save, sender=LineItem)

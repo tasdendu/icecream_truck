@@ -21,8 +21,7 @@ class Item(models.Model):
     flavors = models.ManyToManyField(Flavor, blank=False)
 
     def total_amount(self):
-        return self.line_items.aggregate(total_amount=Sum(
-            F('quantity')*F('price')))['total_amount']
+        return sum([li.amount() for li in self.line_items.all()])
 
     def __str__(self):
         return self.name

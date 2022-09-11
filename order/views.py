@@ -14,8 +14,8 @@ class OrderView(APIView):
             serializer = OrderSerializer(order)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-        line_items = LineItem.objects.all()
-        serializer = OrderSerializer(line_items, many=True)
+        orders = Order.objects.all()
+        serializer = OrderSerializer(orders, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
     def post(self, request):

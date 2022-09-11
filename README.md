@@ -1,4 +1,24 @@
 # Icecream Truck
+#### API Endpoints
+1. POST `localhost:8000/api/v1/customers/token/login/` Login with below parameters
+    ```json
+    {
+        "email": "customer@test.com",
+        "password": "Test@123"
+    }
+    ```
+2. `localhost:8000/api/v1/trucks/` List of icecream trucks
+3. `localhost:8000/api/v1/items/` Inventory list from all the trucks
+4. GET `localhost:8000/api/v1/orders/` List of orders
+5. POST `localhost:8000/api/v1/orders/` Place order with below parameters
+    ```json
+    {
+        "line_items": {
+            "item": 1,
+            "quantity": 1
+        }
+    }
+    ```
 
 ```zsh
 git clone https://github.com/tashi_179/icecream_truck.git
@@ -26,8 +46,3 @@ To run the test suite:
 ```zsh
 python manage.py test
 ```
-
-### API Endpoints
-1. `localhost:8000/api/v1/trucks/` List of icecream trucks
-2. `localhost:8000/api/v1/items/` Inventory list from all the trucks
-3. `localhost:8000/api/v1/orders/` List of customers order

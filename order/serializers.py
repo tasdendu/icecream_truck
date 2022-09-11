@@ -33,7 +33,7 @@ class CreateLineItemSerializer(serializers.ModelSerializer):
     def validate(self, data):
         if data['quantity'] > data['item'].quantity:
             raise serializers.ValidationError(
-                {"quantity": "item is out of stock"})
+                {"quantity": "item not sufficient, please reduce quantity"})
         return data
 
 

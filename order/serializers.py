@@ -1,10 +1,10 @@
 from rest_framework import serializers
 from .models import *
 from item.serializers import ItemSerializer
-from drf_writable_nested import WritableNestedModelSerializer
+from drf_writable_nested.serializers import WritableNestedModelSerializer
 
 
-class LineItemSerializer(serializers.HyperlinkedModelSerializer):
+class LineItemSerializer(serializers.ModelSerializer):
     item = ItemSerializer()
 
     class Meta:
@@ -12,7 +12,7 @@ class LineItemSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'quantity', 'price', 'item')
 
 
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     line_items = LineItemSerializer(many=True)
 
     class Meta:
@@ -22,12 +22,12 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 # Create serializers
 
 
-class CreateLineItemSerializer(serializers.HyperlinkedModelSerializer):
+class CreateLineItemSerializer(serializers.ModelSerializer):
     quantity = serializers.IntegerField(min_value=1)
     price = serializers.FloatField(read_only=True)
 
     class Meta:
-        model = Item
+        model = LineItem
         fields = ('quantity', 'item', 'price')
 
     def validate(self, data):
@@ -37,9 +37,9 @@ class CreateLineItemSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
-class CreateOrderSerializer(WritableNestedModelSerializer, serializers.HyperlinkedModelSerializer):
+class CreateOrderSerializer(WritableNestedModelSerializer):
     line_items = CreateLineItemSerializer(many=True)
 
     class Meta:
         model = Order
-        fields = ('id', 'line_items', 'user', 'created_at')
+        fields = ('id', 'line_items', 'customer', 'order_date')

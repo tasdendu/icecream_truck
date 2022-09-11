@@ -1,0 +1,9 @@
+[
+  {
+    "model": "truck.truck",
+    "pk": 1,
+    "fields": {
+      "name": "Jumbo Truck"
+    }
+  }
+]

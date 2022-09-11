@@ -1,3 +1,5 @@
-djangorestframework
-djoser
-drf_writable_nested
+djangorestframework==3.13.1
+djoser==2.1.0
+drf_writable_nested==0.7.0
+faker==14.2.0
+django==4.1

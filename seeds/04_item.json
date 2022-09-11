@@ -1,0 +1,112 @@
+[
+  {
+    "model": "item.item",
+    "pk": 1,
+    "fields": {
+      "name": "Item 1",
+      "quantity": 0,
+      "price": 100,
+      "truck": 1,
+      "flavors": [1]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 2,
+    "fields": {
+      "name": "Item 2",
+      "quantity": 1,
+      "price": 100,
+      "truck": 1,
+      "flavors": [2]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 3,
+    "fields": {
+      "name": "Item 3",
+      "quantity": 20,
+      "price": 100,
+      "truck": 1,
+      "flavors": [3]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 4,
+    "fields": {
+      "name": "Item 4",
+      "quantity": 0,
+      "price": 100,
+      "truck": 1,
+      "flavors": [4]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 5,
+    "fields": {
+      "name": "Item 5",
+      "quantity": 9,
+      "price": 100,
+      "truck": 1,
+      "flavors": [5]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 6,
+    "fields": {
+      "name": "Item 6",
+      "quantity": 0,
+      "price": 100,
+      "truck": 1,
+      "flavors": [1]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 7,
+    "fields": {
+      "name": "Item 7",
+      "quantity": 1,
+      "price": 100,
+      "truck": 1,
+      "flavors": [2]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 8,
+    "fields": {
+      "name": "Item 8",
+      "quantity": 20,
+      "price": 100,
+      "truck": 1,
+      "flavors": [3]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 9,
+    "fields": {
+      "name": "Item 9",
+      "quantity": 0,
+      "price": 100,
+      "truck": 1,
+      "flavors": [4]
+    }
+  },
+  {
+    "model": "item.item",
+    "pk": 10,
+    "fields": {
+      "name": "Item 10",
+      "quantity": 9,
+      "price": 100,
+      "truck": 1,
+      "flavors": [5]
+    }
+  }
+]

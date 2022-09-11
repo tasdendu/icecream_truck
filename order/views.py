@@ -20,7 +20,8 @@ class OrderView(APIView):
 
     def post(self, request):
         serializer = CreateOrderSerializer(
-            data={**request.data, 'customer': request.customer.id})
+            data={**request.data, 'customer': request.user.id}
+        )
         if serializer.is_valid():
             serializer.save()
             return Response("ENJOY!", status=status.HTTP_200_OK)

@@ -1,0 +1,30 @@
+[
+  {
+    "model": "customer.customer",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$fvqnGVLgk5WQlX8njNcB5t$2ORG/XHLS2JQOBli0XDO8Xj1YqShh5N3wWpf9jNLAH0=",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Test",
+      "last_name": "Admin",
+      "is_active": true,
+      "email": "admin@test.com",
+      "phone": "17827373"
+    }
+  },
+  {
+    "model": "customer.customer",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$fvqnGVLgk5WQlX8njNcB5t$2ORG/XHLS2JQOBli0XDO8Xj1YqShh5N3wWpf9jNLAH0=",
+      "is_superuser": false,
+      "username": "customer",
+      "first_name": "Test",
+      "last_name": "Customer",
+      "is_active": true,
+      "email": "customer@test.com",
+      "phone": "17972377"
+    }
+  }
+]

@@ -21,26 +21,19 @@ class OrderTest(APITestCase):
         )
         item2.flavors.set([flavor])
 
-    def test_enjoy_order(self):
-        client = APIClient()
-        login = client.post('/api/v1/customers/token/login/',
-                            {'email': 'customer@test.com', 'password': 'test'}, format='json')
-        client.credentials(HTTP_AUTHORIZATION='Token ' +
-                           login.data['auth_token'])
+        login = self.client.post('/api/v1/customers/token/login/',
+                                 {'email': 'customer@test.com', 'password': 'test'}, format='json')
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' +
+                                login.data['auth_token'])
 
-        response = client.post(
+    def test_enjoy_order(self):
+        response = self.client.post(
             '/api/v1/orders/', {'line_items': [{'item': 2, 'quantity': 1}]}, format='json')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, 'ENJOY!')
 
     def test_sorry_order(self):
-        client = APIClient()
-        login = client.post('/api/v1/customers/token/login/',
-                            {'email': 'customer@test.com', 'password': 'test'}, format='json')
-        client.credentials(HTTP_AUTHORIZATION='Token ' +
-                           login.data['auth_token'])
-
-        response1 = client.post(
+        response = self.client.post(
             '/api/v1/orders/', {'line_items': [{'item': 1, 'quantity': 1}]}, format='json')
-        self.assertEqual(response1.status_code, 400)
-        self.assertEqual(response1.data, 'SORRY!')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.data, 'SORRY!')
